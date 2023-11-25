@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "helm-for-demo-cicd.fullname" . }}
+  name: helm-for-demo-cicd-deploy
   labels:
-    {{- include "helm-for-demo-cicd.labels" . | nindent 4 }}
+    app: helm-for-demo-cicd
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "helm-for-demo-cicd.selectorLabels" . | nindent 6 }}
+      app: helm-for-demo-cicd
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "helm-for-demo-cicd.labels" . | nindent 8 }}
+        app: helm-for-demo-cicd
 	{{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}

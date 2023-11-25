@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "helm-for-demo-cicd.fullname" . }}
+  name: helm-for-demo-cicd-svc
   labels:
-    {{- include "helm-for-demo-cicd.labels" . | nindent 4 }}
+    app: helm-for-demo-cicd
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "helm-for-demo-cicd.selectorLabels" . | nindent 4 }}
+    app: helm-for-demo-cicd
