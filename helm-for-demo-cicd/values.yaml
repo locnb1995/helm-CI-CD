@@ -8,7 +8,7 @@ image:
   repository: locnb1995/demo-ci-pipline
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "ee26bd54b0a7bd79487fc59f0ebdadcab65428aa"
+  tag: "42848109655aa51f8cfde6b6583e46d988632c63"
 
 imagePullSecrets: []
 nameOverride: ""
